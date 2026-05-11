@@ -1,0 +1,58 @@
+aid: squadcast
+name: Squadcast
+description: >-
+  Squadcast (now part of SolarWinds Incidents Cloud) is an end-to-end incident
+  response and on-call management platform that helps SRE and DevOps teams
+  detect, respond to, and learn from incidents with on-call schedules,
+  escalation policies, runbooks, status pages, and post-incident reviews.
+  Squadcast's public API provides programmatic access to incidents, services,
+  schedules, escalation policies, and users using OAuth bearer token
+  authentication.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Incident Response
+  - On-Call Management
+  - DevOps
+  - SRE
+  - Alerting
+  - Incident Management
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/squadcast/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: squadcast:public-api
+    name: Squadcast Public API
+    description: >-
+      Public REST API for managing incidents, services, on-call schedules,
+      escalation policies, users, and teams in Squadcast. Authentication uses
+      HTTP Bearer access tokens exchanged from a refresh token at the auth
+      endpoint. Available in US and EU regions.
+    humanURL: https://developers.incidents.cloud.solarwinds.com/api-reference
+    baseURL: https://api.squadcast.com
+    tags:
+      - Incidents
+      - Services
+      - Schedules
+      - Escalation Policies
+      - On-Call
+    properties:
+      - type: Documentation
+        url: https://developers.incidents.cloud.solarwinds.com/api-reference
+      - type: Authentication
+        url: https://auth.squadcast.com/oauth/access-token
+
+common:
+  - type: Website
+    url: https://www.squadcast.com
+  - type: Documentation
+    url: https://support.squadcast.com/
+  - type: Pricing
+    url: https://www.squadcast.com/pricing
+  - type: Sign Up
+    url: https://app.squadcast.com/signup
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
