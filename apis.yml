@@ -45,6 +45,10 @@ apis:
         url: https://auth.squadcast.com/oauth/access-token
 
 common:
+  - type: GitHubOrganization
+    url: https://github.com/SquadcastHub
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/squadcast
   - type: Website
     url: https://www.squadcast.com
   - type: Documentation
