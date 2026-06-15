@@ -1,0 +1,348 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Squadcast Public API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Exchange refresh token for access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.squadcast.com/oauth/access-token",
+            "headers": [
+              {
+                "name": "X-Refresh-Token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Exchange a long-lived refresh token (passed in the `X-Refresh-Token`\nheader) for a short-lived bearer access token used on all other API\ncalls. Call this against the auth host (`auth.squadcast.com` or\n`auth.eu.squadcast.com`).\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Incidents",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get incident by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.squadcast.com/v3/incidents/:incidentID",
+            "params": [
+              {
+                "name": "incidentID",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the incident."
+              }
+            ]
+          },
+          "docs": "Retrieve full details of a single incident by its identifier."
+        },
+        {
+          "info": {
+            "name": "Acknowledge an incident",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.squadcast.com/v3/incidents/:incidentID/acknowledge",
+            "params": [
+              {
+                "name": "incidentID",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the incident."
+              }
+            ]
+          },
+          "docs": "Acknowledge a single incident by ID."
+        },
+        {
+          "info": {
+            "name": "Resolve an incident",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.squadcast.com/v3/incidents/:incidentID/resolve",
+            "params": [
+              {
+                "name": "incidentID",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the incident."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Resolve a single incident by ID. A `resolution_reason` object describing\nwhy the incident is being resolved is required in the request body.\n"
+        },
+        {
+          "info": {
+            "name": "List incident events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.squadcast.com/v3/incidents/:incidentID/events",
+            "params": [
+              {
+                "name": "incidentID",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the incident."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of events to return (max 10)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "deduped",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve the event timeline for an incident with pagination."
+        },
+        {
+          "info": {
+            "name": "Reassign an incident",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.squadcast.com/v3/incidents/:incidentID/reassign",
+            "params": [
+              {
+                "name": "incidentID",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the incident."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Reassign an incident to a different user, escalation policy, or squad.\nThe `reassignTo` object requires both an `id` and a `type`.\n"
+        },
+        {
+          "info": {
+            "name": "Update a single incident's priority",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.squadcast.com/v3/incidents/:incidentID/priority",
+            "params": [
+              {
+                "name": "incidentID",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the incident."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a single incident's priority"
+        },
+        {
+          "info": {
+            "name": "Bulk acknowledge incidents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.squadcast.com/v3/incidents/acknowledge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Acknowledge up to 100 incidents in a single call. Rate limit: 10 calls\nper minute.\n"
+        },
+        {
+          "info": {
+            "name": "Bulk resolve incidents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.squadcast.com/v3/incidents/resolve",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Resolve up to 100 incidents in a single call. Rate limit: 10 calls per\nminute.\n"
+        },
+        {
+          "info": {
+            "name": "Bulk update incident priority",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.squadcast.com/v3/incidents/priority",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Bulk update incident priority"
+        },
+        {
+          "info": {
+            "name": "Export incidents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.squadcast.com/v3/incidents/export",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Export format (e.g. csv, json)."
+              },
+              {
+                "name": "start_time",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_time",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "owner_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "services",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sources",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "assigned_to",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "priority",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "slo_affecting",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Export incident details as CSV or JSON."
+        },
+        {
+          "info": {
+            "name": "Export incidents asynchronously",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.squadcast.com/v3/incidents/export/async",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Kick off an async export job. Returns 202 and emails the download link\nwhen the export completes.\n"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Requests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check incident creation request status",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.squadcast.com/v3/requests/status",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check the status of incident creation requests by their request IDs.\nPossible statuses include created, deduplicated, suppressed, discarded,\nor error.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
