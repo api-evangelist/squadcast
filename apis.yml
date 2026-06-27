@@ -55,7 +55,7 @@ common:
     url: https://support.squadcast.com/
   - type: Pricing
     url: https://www.squadcast.com/pricing
-  - type: SignUp
+  - type: Signup
     url: https://app.squadcast.com/signup
 maintainers:
   - FN: Kin Lane
