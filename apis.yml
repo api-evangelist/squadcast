@@ -45,6 +45,10 @@ apis:
         url: https://auth.squadcast.com/oauth/access-token
 
 common:
+  - type: DomainSecurity
+    url: security/squadcast-domain-security.yml
+  - type: Authentication
+    url: authentication/squadcast-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/SquadcastHub
   - type: LinkedIn
@@ -57,6 +61,8 @@ common:
     url: https://www.squadcast.com/pricing
   - type: Signup
     url: https://app.squadcast.com/signup
+  - url: https://squadcast.com/blog/rss.xml
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

@@ -1,0 +1,16 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/squadcast-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: |-
+    Bearer access token obtained via the `/oauth/access-token` endpoint on
+    the auth host. Send as `Authorization: Bearer <access_token>`.
+  sources:
+  - openapi/squadcast-openapi.yml
