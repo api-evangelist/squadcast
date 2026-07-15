@@ -45,6 +45,8 @@ apis:
         url: https://auth.squadcast.com/oauth/access-token
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/squadcast-agentic-access.yml
   - type: DomainSecurity
     url: security/squadcast-domain-security.yml
   - type: Authentication
