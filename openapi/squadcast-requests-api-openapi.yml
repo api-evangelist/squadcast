@@ -1,0 +1,82 @@
+openapi: 3.1.0
+info:
+  title: Squadcast Public Authentication Requests API
+  description: 'Public REST API for the Squadcast (SolarWinds Incidents Cloud) incident
+
+    response and on-call management platform. The API exposes incident
+
+    management operations — including bulk acknowledge/resolve, individual
+
+    incident lookup, reassignment, priority updates, exports, and request
+
+    status checks.
+
+
+    Authentication uses HTTP Bearer access tokens. Access tokens are
+
+    short-lived and exchanged from a long-lived refresh token via the
+
+    `/oauth/access-token` endpoint on the auth host. Send subsequent API
+
+    requests with `Authorization: Bearer <access_token>` against the regional
+
+    API host.
+
+    '
+  version: 3.0.0
+  contact:
+    name: Squadcast Support
+    url: https://support.squadcast.com/
+servers:
+- url: https://api.squadcast.com
+  description: US region API host
+- url: https://api.eu.squadcast.com
+  description: EU region API host
+- url: https://auth.squadcast.com
+  description: US region auth host (used only for /oauth/access-token)
+- url: https://auth.eu.squadcast.com
+  description: EU region auth host (used only for /oauth/access-token)
+security:
+- bearerAuth: []
+tags:
+- name: Requests
+  description: Incident creation request status
+paths:
+  /v3/requests/status:
+    post:
+      tags:
+      - Requests
+      summary: Check incident creation request status
+      description: 'Check the status of incident creation requests by their request IDs.
+
+        Possible statuses include created, deduplicated, suppressed, discarded,
+
+        or error.
+
+        '
+      operationId: getRequestStatus
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                request_ids:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Request statuses
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'Bearer access token obtained via the `/oauth/access-token` endpoint on
+
+        the auth host. Send as `Authorization: Bearer <access_token>`.
+
+        '
