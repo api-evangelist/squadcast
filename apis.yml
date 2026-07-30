@@ -9,7 +9,19 @@ description: >-
   schedules, escalation policies, and users using OAuth bearer token
   authentication.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/squadcast.png
 tags:
   - Incident Response
   - On-Call Management
@@ -23,27 +35,55 @@ created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.19'
 apis:
-  - aid: squadcast:public-api
-    name: Squadcast Public API
-    description: >-
-      Public REST API for managing incidents, services, on-call schedules,
-      escalation policies, users, and teams in Squadcast. Authentication uses
-      HTTP Bearer access tokens exchanged from a refresh token at the auth
-      endpoint. Available in US and EU regions.
-    humanURL: https://developers.incidents.cloud.solarwinds.com/api-reference
-    baseURL: https://api.squadcast.com
-    tags:
-      - Incidents
-      - Services
-      - Schedules
-      - Escalation Policies
-      - On-Call
-    properties:
-      - type: Documentation
-        url: https://developers.incidents.cloud.solarwinds.com/api-reference
-      - type: Authentication
-        url: https://auth.squadcast.com/oauth/access-token
-
+- aid: squadcast:public-api
+  name: Squadcast Public API
+  description: >-
+    Public REST API for managing incidents, services, on-call schedules, escalation policies, users, and
+    teams in Squadcast. Authentication uses HTTP Bearer access tokens exchanged from a refresh token at
+    the auth endpoint. Available in US and EU regions.
+  humanURL: https://developers.incidents.cloud.solarwinds.com/api-reference
+  baseURL: https://api.squadcast.com
+  tags:
+  - Incidents
+  - Services
+  - Schedules
+  - Escalation Policies
+  - On-Call
+  properties:
+  - type: Documentation
+    url: https://developers.incidents.cloud.solarwinds.com/api-reference
+  - type: Authentication
+    url: https://auth.squadcast.com/oauth/access-token
+- aid: squadcast:squadcast-authentication-api
+  name: Squadcast Authentication API
+  description: Token exchange endpoints
+  humanURL: https://developers.incidents.cloud.solarwinds.com/api-reference
+  baseURL: https://api.squadcast.com
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/squadcast-authentication-api-openapi.yml
+- aid: squadcast:squadcast-incidents-api
+  name: Squadcast Incidents API
+  description: Incident lifecycle and bulk operations
+  humanURL: https://developers.incidents.cloud.solarwinds.com/api-reference
+  baseURL: https://api.squadcast.com
+  tags:
+  - Incidents
+  properties:
+  - type: OpenAPI
+    url: openapi/squadcast-incidents-api-openapi.yml
+- aid: squadcast:squadcast-requests-api
+  name: Squadcast Requests API
+  description: Incident creation request status
+  humanURL: https://developers.incidents.cloud.solarwinds.com/api-reference
+  baseURL: https://api.squadcast.com
+  tags:
+  - Requests
+  properties:
+  - type: OpenAPI
+    url: openapi/squadcast-requests-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/squadcast-agentic-access.yml
