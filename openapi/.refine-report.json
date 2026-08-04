@@ -1,0 +1,18 @@
+{
+  "provider": "squadcast",
+  "sources": [
+    "squadcast-authentication-api-openapi.yml",
+    "squadcast-incidents-api-openapi.yml",
+    "squadcast-requests-api-openapi.yml"
+  ],
+  "outputs": [
+    "squadcast-authentication-api-openapi.yml",
+    "squadcast-incidents-api-openapi.yml",
+    "squadcast-requests-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
