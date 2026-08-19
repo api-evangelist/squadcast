@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Squadcast Public Authentication Requests API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Requests",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check incident creation request status",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.squadcast.com/v3/requests/status",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check the status of incident creation requests by their request IDs.\nPossible statuses include created, deduplicated, suppressed, discarded,\nor error.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,136 @@
+{
+  "item": [
+    {
+      "id": "4087a997-2b95-4b0b-903f-1b7dd1d1e2d2",
+      "name": "Requests",
+      "description": {
+        "content": "Incident creation request status",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f0ab25e1-2dda-4d46-943a-09453d8be759",
+          "name": "Check incident creation request status",
+          "request": {
+            "name": "Check incident creation request status",
+            "description": {
+              "content": "Check the status of incident creation requests by their request IDs.\nPossible statuses include created, deduplicated, suppressed, discarded,\nor error.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "requests",
+                "status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"request_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3f2bf516-4b7e-4dab-98a4-eac00bd538b7",
+              "name": "Request statuses",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "requests",
+                    "status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"request_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.squadcast.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8ca648a5-494d-45b8-9e44-92282e4ee336",
+    "name": "Squadcast Public Authentication Requests API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Public REST API for the Squadcast (SolarWinds Incidents Cloud) incident\nresponse and on-call management platform. The API exposes incident\nmanagement operations — including bulk acknowledge/resolve, individual\nincident lookup, reassignment, priority updates, exports, and request\nstatus checks.\n\nAuthentication uses HTTP Bearer access tokens. Access tokens are\nshort-lived and exchanged from a long-lived refresh token via the\n`/oauth/access-token` endpoint on the auth host. Send subsequent API\nrequests with `Authorization: Bearer <access_token>` against the regional\nAPI host.\n\n\nContact Support:\n Name: Squadcast Support",
+      "type": "text/plain"
+    }
+  }
+}

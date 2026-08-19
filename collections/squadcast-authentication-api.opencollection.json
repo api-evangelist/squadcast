@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Squadcast Public Authentication API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Exchange refresh token for access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.squadcast.com/oauth/access-token",
+            "headers": [
+              {
+                "name": "X-Refresh-Token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Exchange a long-lived refresh token (passed in the `X-Refresh-Token`\nheader) for a short-lived bearer access token used on all other API\ncalls. Call this against the auth host (`auth.squadcast.com` or\n`auth.eu.squadcast.com`).\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
