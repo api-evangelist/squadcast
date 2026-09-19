@@ -60,6 +60,12 @@ apis:
   tags:
   - Incidents
   - Services
+  - Schedule
+  - Escalation Policies
+  - On-Call
+  tags_raw:
+  - Incidents
+  - Services
   - Schedules
   - Escalation Policies
   - On-Call
