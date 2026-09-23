@@ -1,28 +1,9 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Squadcast Public Authentication API
   description: 'Public REST API for the Squadcast (SolarWinds Incidents Cloud) incident
 
-    response and on-call management platform. The API exposes incident
-
-    management operations — including bulk acknowledge/resolve, individual
-
-    incident lookup, reassignment, priority updates, exports, and request
-
-    status checks.
-
-
-    Authentication uses HTTP Bearer access tokens. Access tokens are
-
-    short-lived and exchanged from a long-lived refresh token via the
-
-    `/oauth/access-token` endpoint on the auth host. Send subsequent API
-
-    requests with `Authorization: Bearer <access_token>` against the regional
-
-    API host.
-
-    '
+    response and on-call management platform.'
   version: 3.0.0
   contact:
     name: Squadcast Support
@@ -53,9 +34,7 @@ paths:
 
         calls. Call this against the auth host (`auth.squadcast.com` or
 
-        `auth.eu.squadcast.com`).
-
-        '
+        `auth.eu.squadcast.com`).'
       operationId: getAccessToken
       security: []
       parameters:

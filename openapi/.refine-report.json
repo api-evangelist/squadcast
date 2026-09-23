@@ -1,9 +1,7 @@
 {
   "provider": "squadcast",
   "sources": [
-    "squadcast-authentication-api-openapi.yml",
-    "squadcast-incidents-api-openapi.yml",
-    "squadcast-requests-api-openapi.yml"
+    "_original/squadcast-openapi.yml"
   ],
   "outputs": [
     "squadcast-authentication-api-openapi.yml",
@@ -13,6 +11,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "squadcast-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "squadcast-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "squadcast-incidents-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "squadcast-requests-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
