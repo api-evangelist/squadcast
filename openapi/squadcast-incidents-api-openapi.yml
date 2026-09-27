@@ -346,14 +346,6 @@ paths:
         '202':
           description: Export job accepted
 components:
-  parameters:
-    IncidentID:
-      name: incidentID
-      in: path
-      required: true
-      description: Unique identifier of the incident.
-      schema:
-        type: string
   schemas:
     BulkIncidentIds:
       type: object
@@ -366,6 +358,14 @@ components:
           maxItems: 100
           items:
             type: string
+  parameters:
+    IncidentID:
+      name: incidentID
+      in: path
+      required: true
+      description: Unique identifier of the incident.
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
